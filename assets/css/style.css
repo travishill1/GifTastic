@@ -1,18 +1,60 @@
 .btn {
     color: black;
     background-color: lightblue;
-    padding: 20px;
-    margin: 20px 10px 50px 10px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 10px 10px 0px;
 }
 
 p {
-    display: block;
+    /* display: block; */
     /* float: none; */
     margin: 0;
     font-size: 18px;
     font-weight: bold;
 }
 
-fig {
+h1 {
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+}
+
+h3 {
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+}
+
+figure {
     display: inline-block;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#search-area {
+    background-color: lightgray;
+    max-width: 20%;
+    display: inline-block;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#add-user {
+    margin: 0% 25% 15% 0% auto;
+    align: center;
+}
+
+#seperator {
+    background-color: darkblue;
+    margin-top: 10px;
+    font-size: 50px;
 }

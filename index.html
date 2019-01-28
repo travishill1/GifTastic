@@ -16,28 +16,34 @@
     <container>
         <div id="header">
             <h1>GifTastic</h1>
-            <h3>Press any button or add your own to get GIFs.</h3>
+            <h3>Press any button to get GIFs or create your own button using the search input.</h3>
         </div>
 
-    <div id="button-area">
-        BUTTON AREA:
+<div class="row">
+    <div class="col-8" id="button-area">
 
     </div>
+    <div class="col-4" id="search-area">
+            <form role="form">
+                    <div class="form-group row">
+                      <label for="name-input">Add Button Using a Keyword:</label>
+                      <input class="form-control" id="name-input" type="text">
+                    </div>
+                    <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+            </form>
+    </div>
+</div>
+
+<div id="seperator">
+    <p> &nbsp</p>
+</div>
 
     <div class="row">
-        <div class="row col-8" id="gif-area">
-            GIF AREA
+        <div class="col-12" id="gif-area">
+            
         </div>
 
-        <div class="row col-4"id="search-area">
-                <form role="form">
-                        <div class="form-group row">
-                          <label for="name-input">Search:</label>
-                          <input class="form-control" id="name-input" type="text">
-                        </div>
-                        <button class="btn btn-default" id="add-user" type="submit">Submit</button>
-                </form>
-        </div>
+        
     </div>
 
     </container>

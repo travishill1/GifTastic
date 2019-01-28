@@ -97,6 +97,7 @@ $("#add-user").on("click", function(event) {
 var searchName = $("#name-input").val().trim();
 let newButton = new QueryButton(searchName);
         newButton.addButton();
+        $("#name-input").val("")
 });
 
 app = {
@@ -108,7 +109,9 @@ topics : [
     "tiger",
     "giraffe",
     "owl",
-    "dog"
+    "monkey",
+    "dog",
+    "hobbit"
 ],
 
 // take the topics in array and create buttons in your HTML using a loop that appends a button for each string in the array.
