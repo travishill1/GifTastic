@@ -24,11 +24,18 @@ class QueryButton {
           .then(function(response) {
             $("#gif-area").empty();
             const results = response.data;
+            
+
             results.forEach(function(result){
-                let img_url = result.images.fixed_width.url;
-                let img_element = $("<img>").attr("src", img_url);
-                $("#gif-area").append(img_element);
+                let animateURL = result.images.fixed_height.url;
+                let stillURL = result.images.fixed_height_still.url;
+                let rating = result.rating;
+                // let img_element = $("<img>").attr("src", img_url);
+                // $("#gif-area").append(img_element);
+                new GifMake(stillURL, animateURL, rating)
             })
+            
+          
           // Saving the image_original_url property
             // var imageUrl = response.data.image_original_url;
   
@@ -45,7 +52,52 @@ class QueryButton {
       };
 }
 
+class GifMake {
+    constructor(stillURL, animateURL, rating){
+        
+        this.stillURL = stillURL;
+        this.animateURL = animateURL;
+        // this.rating = rating;
+        this.figure = $("<figure>")
+        this.img_element = $("<img>").attr("src", this.stillURL);
+        this.rating = $("<figcaption>").html("Rating: " + rating);
+        this.figure.append(this.img_element, this.rating);
+        
+        this.img_element.addClass("gif");
+        this.img_element.attr("data-state", "still");
+        this.img_element.attr("data-still", this.stillURL);
+        this.img_element.attr("data-animate", this.animateURL);
+        $("#gif-area").append(this.figure);
+        // $("#gif-area").append("Rating: " + rating);
+        this.img_element.on("click", this.toggleAnim);
+    }
 
+toggleAnim(){
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  }
+}
+
+
+
+
+// SEARCH BAR ON SUBMIT click
+$("#add-user").on("click", function(event) {
+    // prevent form from trying to submit/refresh the page
+    event.preventDefault();
+var searchName = $("#name-input").val().trim();
+let newButton = new QueryButton(searchName);
+        newButton.addButton();
+});
 
 app = {
 

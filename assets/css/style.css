@@ -1,6 +1,18 @@
 .btn {
     color: black;
     background-color: lightblue;
-    padding: 3px;
-    margin: 0 auto;
+    padding: 20px;
+    margin: 20px 10px 50px 10px;
+}
+
+p {
+    display: block;
+    /* float: none; */
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+fig {
+    display: inline-block;
 }
